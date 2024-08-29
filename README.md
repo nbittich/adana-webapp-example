@@ -1,6 +1,6 @@
 # Adana TODO WEBAPP
 
-An example of web app created with [adana](https://github.com/nbittich/adana).
+An example of web app created with [adana](https://github.com/nbittich/adana) and its [standard library](https://github.com/nbittich/adana-std).
 The code of the backend is [here](/server.adana) .
 This is an MVP, we currently store data in an array, while it would be nice to have
 an sqlite integration.
