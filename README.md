@@ -1,9 +1,5 @@
 # Adana TODO WEBAPP
 
-
-
-"https://github.com/user-attachments/assets/e87a2654-f4a6-40af-ad4b-544c3a3468b3"
-
 An example of web app created with [adana](https://github.com/nbittich/adana).
 The code of the backend is [here](/server.adana) .
 This is an MVP, we currently store data in an array, while it would be nice to have
@@ -19,3 +15,5 @@ docker run --rm -p 8000:8000 nbittich/adana-webapp-example
 ```
 
 - Goto http://localhost:8000
+
+https://github.com/user-attachments/assets/e87a2654-f4a6-40af-ad4b-544c3a3468b3
