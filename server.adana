@@ -1,5 +1,5 @@
-http = require("/devdisk/sideprojects/adana-std/target/release/libadana_std_http.so")
-uuid = require("/devdisk/sideprojects/adana-std/target/release/libadana_std_uuid.so")
+http = require("@std/http")
+uuid = require("@std/uuid")
 http_server=http.new() # listen to 8000 by default
 
 settings = struct {
@@ -85,3 +85,5 @@ struct {
 }
 
 http_handle = http.start(http_server, settings)
+
+
