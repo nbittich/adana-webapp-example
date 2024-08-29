@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <script src="js/bootstrap.js"></script>
+    <script src="js/todo-item.js"></script>
+  </head>
+  <body>
+    <div class="container my-2">
+      <section class="vh-100">
+        <div class="container py-5 h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="col">
+              <div
+                class="card rounded-0"
+                id="list1"
+                style="border-radius: 0.75rem; background-color: #eff1f2"
+              >
+                <div class="card-body py-4 px-4 px-md-5">
+                  <p class="h1 text-center text-uppercase mt-3 mb-4 pb-3">
+                    Todos
+                  </p>
+
+                  <div class="pb-2">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-lg rounded-0"
+                        id="todoInput"
+                        placeholder="Add new..."
+                      />
+                      <button
+                        id="addTodo"
+                        type="button"
+                        class="btn btn-primary border-0"
+                      >
+                        Add
+                      </button>
+                    </div>
+                  </div>
+
+                  <hr class="my-4" />
+
+                  <div id="todosContainer"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

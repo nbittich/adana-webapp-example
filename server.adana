@@ -1,0 +1,87 @@
+http = require("/devdisk/sideprojects/adana-std/target/release/libadana_std_http.so")
+uuid = require("/devdisk/sideprojects/adana-std/target/release/libadana_std_uuid.so")
+http_server=http.new() # listen to 8000 by default
+
+settings = struct {
+   store: struct {todos: []}, # mutable shared data
+   static: [
+      struct {
+         path: "/",
+         file_path: "./public/"
+      }
+   ],
+    routes: [
+       struct {
+        path: "/api/todos/:id",
+      	handler: (req, store) => {
+      	  updated = false
+          for idx,t in store.todos {
+      	       if t.id == req.params.id  {
+      	         store.todos[idx].checked = req.body.checked;  
+      	         updated = true
+      	         break
+      	       }
+      	    }
+      	    return struct {
+              status: 200,
+              body: struct { updated: updated },
+              headers: struct { "Content-Type": "application/json"}
+            }
+      	},
+        method: "POST"
+      },
+       struct {
+        path: "/api/todos",
+      	handler: (req, store) => {
+      	    todo = struct {value: req.form.todo, id: uuid.new(), checked: false}
+            store.todos += [todo]
+      	    return struct {
+              status: 200,
+              body: todo ,
+              headers: struct { "Content-Type": "application/json"}
+            }
+      	},
+        method: "POST"
+      },
+struct {
+      	path: "/api/todos/:id",
+      	handler: (req, store) => {
+      	    todo = null
+      	    for t in store.todos {
+      	       if t.id == req.params.id  {
+      	         todo = t
+      	       }
+      	    }
+             if todo != null {
+                 return struct {
+                     status: 200,
+                     body: todo,
+                     headers: struct { "Content-Type": "application/json"}
+                 }
+             } 
+             return struct {
+                    status: 404,
+                    body: struct {response: "not found"},
+                    headers: struct { "Content-Type": "application/json"}
+             }
+             
+      	},
+        method: "GET"
+      },
+      struct {
+        path: "/api/todos",
+        method: "GET",
+        handler: (req, store) => {
+            return struct {
+                        status: 200,
+                        body: store.todos,
+                        headers: struct { "Content-Type": "application/json"}
+            }
+        }
+
+      }
+    ]
+
+}
+
+http_handle = http.start(http_server, settings)
