@@ -17,7 +17,7 @@ settings = struct {
       	  updated = false
           for idx,t in store.todos {
       	       if t.id == req.params.id  {
-      	         store.todos[idx].checked = req.body.checked;  
+      	         store.todos[idx].checked = req.body.checked  
       	         updated = true
       	         break
       	       }
