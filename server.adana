@@ -43,7 +43,7 @@ settings = struct {
       	},
         method: "POST"
       },
-struct {
+      struct {
       	path: "/api/todos/:id",
       	handler: (req, store) => {
       	    todo = null
